@@ -71,7 +71,7 @@ def login():
 
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        if user and user.password == form.password.data:  # direct comparison for plain text
+        if user and user.password == form.password.data: 
             login_user(user)
             session['cart'] = []
             session["role"] = user.role
@@ -132,7 +132,7 @@ def add_book():
             name=form.title.data,
             author=form.author.data,
             price=form.price.data,
-            image=filename,
+            img=filename,
             description=form.description.data
         )
 
