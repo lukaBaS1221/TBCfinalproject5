@@ -132,7 +132,7 @@ def add_book():
             name=form.title.data,
             author=form.author.data,
             price=form.price.data,
-            img=f"uploads/{filename}"
+            img=f"uploads/{filename}",
             description=form.description.data
         )
 
