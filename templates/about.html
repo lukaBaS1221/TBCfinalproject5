@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block container %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4 text-center" style="max-width: 500px; width: 100%;">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="width: 100px;" class="mb-3">
+        <h3 class="mb-2">Luka's Bookstore</h3>
+        <p class="text-muted mb-3">Bringing English books to Georgia since 2025.</p>
+
+
+        <hr>
+
+        <p class="mt-3">
+            if you have suggestions for authors works you want to see next,then Drop us an email ---contact@lukasclassics.com ---we will be happy to take your suggestions.
+        </p>
+
+
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <a href="/" class="btn btn-outline-dark">Continue Shopping</a>
+            <a href="/contact" class="btn btn-dark text-white">Contact Us</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

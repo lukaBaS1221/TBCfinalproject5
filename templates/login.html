@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block container %}
+<div class="reg-container">
+    <div class="reg-card">
+        <h2 class="reg-title">Login</h2>
+
+        <form method="post">
+            {{ form.hidden_tag() }}
+
+            {% for errors in form.errors.values() %}
+            <div class="reg-error-box">
+                {% for error in errors %}
+                     {{ error }}<br>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+            <div class="reg-input-group">
+                {{ form.username.label(class="reg-label") }}
+                {{ form.username(class="reg-input", placeholder=form.username.label.text) }}
+            </div>
+            <div class="reg-input-group">
+                {{ form.password.label(class="reg-label") }}
+                {{ form.password(class="reg-input", placeholder=form.password.label.text) }}
+            </div>
+            <div class="reg-submit-wrap">
+                {{ form.submit(class="reg-submit-btn") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

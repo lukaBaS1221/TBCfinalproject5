@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+add a new book
+{% endblock %}
+
+{% block container %}
+{% if current_user.is_authenticated and current_user.role == "Admin" %}
+    <form method="POST" enctype="multipart/form-data" class="add-book-form mb-5">
+        {{ form.hidden_tag() }}
+
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(class="add-book-input") }}<br>
+            {% for error in form.title.errors %}
+                <span class="add-book-error">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.author.label }}<br>
+            {{ form.author(class="add-book-input") }}<br>
+            {% for error in form.author.errors %}
+                <span class="add-book-error">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.price.label }}<br>
+            {{ form.price(class="add-book-input") }}<br>
+            {% for error in form.price.errors %}
+                <span class="add-book-error">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(class="add-book-textarea", rows="5") }}<br>
+            {% for error in form.description.errors %}
+                <span class="add-book-error">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.cover_image.label }}<br>
+            {{ form.cover_image(class="add-book-file") }}<br>
+            {% for error in form.cover_image.errors %}
+                <span class="add-book-error">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>{{ form.submit(class="add-book-submit") }}</p>
+    </form>
+{% else %}
+    <div class="alert alert-danger mb-5">
+        You do not have permission to access this page.
+    </div>
+{% endif %}
+{% endblock %}
