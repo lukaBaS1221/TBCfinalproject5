@@ -58,7 +58,7 @@ def register():
         db.session.commit()
 
         flash("✅ Registered successfully! Now log in.", "success")
-        return redirect(url_for("login"))
+        return redirect("/login")
 
     return render_template("register.html", form=form)
 
@@ -76,8 +76,8 @@ def login():
             session['cart'] = []
             session["role"] = user.role
 
-            flash("✅ Logged in successfully!", "success")
-            return redirect(url_for("home"))
+            flash(" Logged in successfully!", "success")
+            return redirect("/")
         else:
             flash("Wrong username or password", "danger")
 
